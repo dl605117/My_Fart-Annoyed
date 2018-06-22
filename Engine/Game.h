@@ -27,6 +27,7 @@
 #include "Ball.h"
 #include "Sound.h"
 #include "Brick.h"
+#include "Paddle.h"
 
 class Game
 {
@@ -51,6 +52,7 @@ private:
 	Ball ball;
 	Brick brick;
 	RectF walls;
+	Paddle paddle;
 	Sound soundBall;
 	Sound soundBrick;
 };
