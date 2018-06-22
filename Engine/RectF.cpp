@@ -21,8 +21,8 @@ RectF::RectF(const Vec2 & topLeft, const float width, const float height)
 
 bool RectF::IsOverlappingWith(const RectF & rhs) const
 {
-	return left >= rhs.right &&
-		right <= rhs.left &&
-		top >= rhs.bottom &&
-		bottom <= rhs.top;
+	return left <= rhs.right &&
+		right >= rhs.left &&
+		top <= rhs.bottom &&
+		bottom >= rhs.top;
 }
