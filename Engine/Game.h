@@ -50,7 +50,7 @@ private:
 	/********************************/
 	static constexpr float brickWidth = 40.0f;
 	static constexpr float brickHeight = 24.0f;
-	static constexpr int nCols = 12;
+	static constexpr int nCols = 18;
 	static constexpr int nRows = 4;
 	static constexpr int nBricks = nCols * nRows;
 	FrameTimer ft;

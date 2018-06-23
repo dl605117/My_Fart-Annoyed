@@ -33,7 +33,7 @@ Game::Game(MainWindow& wnd)
 {
 	constexpr Color c[4] = { Colors::Red, Colors::Green, Colors::Blue, Colors::Cyan };
 
-	Vec2 topLeft(walls.left, walls.top);
+	Vec2 topLeft( 40.0f, 40.0f);
 	int countBricks = 0;
 	for (int i = 0; i < nRows; i++)
 	{
