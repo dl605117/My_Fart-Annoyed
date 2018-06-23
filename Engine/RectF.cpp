@@ -33,3 +33,8 @@ RectF RectF::FromCenter(const Vec2 & center, float halfWidth, float halfHeight)
 	const Vec2 diff(halfWidth, halfHeight);
 	return RectF(center - diff, center + diff);
 }
+
+RectF RectF::GetExpanded(float offset) const
+{
+	return RectF( left - offset, right + offset, top - offset, bottom + offset );
+}

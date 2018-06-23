@@ -11,6 +11,7 @@ public:
 	void Draw( Graphics& gfx) const;
 	bool DoBallCollision( Ball& ball);
 public:
+	static constexpr float padding = 1.0f;
 	RectF rect;
 	Color c;
 	bool destroyed = false;
