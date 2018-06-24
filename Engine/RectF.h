@@ -10,6 +10,7 @@ public:
 	RectF(const Vec2& topLeft, float width, float height);
 	bool IsCollidingWith( const RectF& rect ) const;
 	static RectF FromCenter( const Vec2& rect, float halfWidth, float halfHeight);
+	RectF GetExpanded(float padding ) const;
 public:
 	float left;
 	float top;

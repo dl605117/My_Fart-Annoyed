@@ -34,3 +34,8 @@ RectF RectF::FromCenter(const Vec2& pos, float halfWidth, float halfHeight)
 	const Vec2 halfVector(halfWidth, halfHeight);
 	return RectF( pos - halfVector, pos + halfVector);
 }
+
+RectF RectF::GetExpanded( float padding ) const
+{
+	return RectF(left - padding, top - padding, right + padding, bottom + padding);
+}
