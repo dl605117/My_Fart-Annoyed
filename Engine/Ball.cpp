@@ -65,3 +65,8 @@ RectF Ball::GetRect() const
 {
 	return RectF::FromCenter( pos, radius, radius );
 }
+
+Vec2 Ball::GetPosition() const
+{
+	return pos;
+}
