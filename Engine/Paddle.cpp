@@ -10,7 +10,11 @@ Paddle::Paddle(const Vec2 & pos, float halfWidth, float halfHeight)
 
 void Paddle::Draw(Graphics & gfx) const
 {
-	gfx.DrawRect( GetRect(), paddleColor );
+	RectF rect = GetRect();
+	gfx.DrawRect( rect, wingColor );
+	rect.left += wingWidth;
+	rect.right -= wingWidth;
+	gfx.DrawRect( rect, paddleColor );
 }
 
 void Paddle::Update(const Keyboard & kbd, float dt)

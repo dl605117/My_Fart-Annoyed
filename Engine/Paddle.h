@@ -15,7 +15,9 @@ private:
 	float halfWidth;
 	float halfHeight;
 	static constexpr float speed = 300.0f;
+	static constexpr float wingWidth = 5.0f;
 	Color paddleColor = Colors::White;
+	Color wingColor = Colors::Red;
 	Vec2 pos;
 	Vec2 vel;
 };
