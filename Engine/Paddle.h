@@ -8,10 +8,11 @@ class Paddle
 public:
 	Paddle( const Vec2& pos, float halfWidth, float halfHeight );
 	void Draw( Graphics & gfx ) const;
-	bool DoBallCollision( Ball& ball ) const;
+	bool DoBallCollision( Ball& ball );
 	void DoWallCollision( const RectF& walls );
 	void Update( const Keyboard& kbd, float dt );
 	RectF GetRect() const;
+	void ResetCooldown();
 private:
 	Color wingColor = Colors::Red;
 	Color padColor = Colors::White;
@@ -20,4 +21,5 @@ private:
 	float halfWidth;
 	float halfHeight;
 	Vec2 pos;
+	bool onCooldown = false;
 };
