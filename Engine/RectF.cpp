@@ -24,13 +24,13 @@ RectF::RectF(const Vec2 & topLeft, float width, float height)
 bool RectF::IsCollidingWith(const RectF& rect) const
 {
 	return left <= rect.right &&
-		top >= rect.bottom &&
-		right <= rect.left &&
+		right >= rect.left &&
+		top <= rect.bottom &&
 		bottom >= rect.top;
 }
 
-RectF RectF::FromCenter(const Vec2& rect, float halfWidth, float halfHeight)
+RectF RectF::FromCenter(const Vec2& pos, float halfWidth, float halfHeight)
 {
 	const Vec2 halfVector(halfWidth, halfHeight);
-	return RectF( rect - halfVector, rect + halfVector);
+	return RectF( pos - halfVector, pos + halfVector);
 }

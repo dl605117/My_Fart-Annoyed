@@ -8,6 +8,7 @@ public:
 	Ball(const Vec2& pos, const Vec2& vel);
 	void Draw(Graphics& gfx) const;
 	void Update( float dt );
+	bool DoWallCollision( const RectF wall );
 	void ReboundX();
 	void ReboundY();
 	RectF GetRect() const;
