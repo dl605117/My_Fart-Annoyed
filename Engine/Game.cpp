@@ -25,8 +25,9 @@ Game::Game(MainWindow& wnd)
 	:
 	wnd(wnd),
 	gfx(wnd),
+	ft(),
 	ball(Vec2(300.0f, 300.0f), Vec2(300.0f, 300.0f)),
-	ft()
+	brick( RectF(450.0f, 550.0f, 485.0f, 515.0f), Colors::Red )
 {
 }
 
@@ -42,9 +43,11 @@ void Game::UpdateModel()
 {
 	const float dt = ft.Mark();
 	ball.Update(dt);
+	brick.DoBallCollision(ball);
 }
 
 void Game::ComposeFrame()
 {
 	ball.Draw(gfx);
+	brick.Draw(gfx);
 }

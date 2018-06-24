@@ -20,3 +20,17 @@ RectF::RectF(const Vec2 & topLeft, float width, float height)
 	RectF(topLeft, Vec2(topLeft.x + width, topLeft.y + height))
 {
 }
+
+bool RectF::IsCollidingWith(const RectF& rect) const
+{
+	return left <= rect.right &&
+		top >= rect.bottom &&
+		right <= rect.left &&
+		bottom >= rect.top;
+}
+
+RectF RectF::FromCenter(const Vec2& rect, float halfWidth, float halfHeight)
+{
+	const Vec2 halfVector(halfWidth, halfHeight);
+	return RectF( rect - halfVector, rect + halfVector);
+}
