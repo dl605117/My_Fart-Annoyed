@@ -22,10 +22,14 @@ bool Brick::CheckBallCollision(const Ball& ball) const
 void Brick::ExecuteBallCollision(Ball & ball)
 {
 	assert( CheckBallCollision( ball ) );
-	if (std::signbit(ball.GetVelocity().x) == std::signbit((ball.GetVelocity() - GetCenter()).x))
+	if (std::signbit(ball.GetVelocity().x) == std::signbit((ball.GetPosition() - GetCenter()).x))
 	{
 		ball.ReboundY();
 	}
+	/*else if (std::signbit(ball.GetVelocity().y) == std::signbit((GetCenter() - ball.GetVelocity()).y))
+	{
+		ball.ReboundX();
+	}*/
 	else if (ball.GetPosition().x >= rect.left && ball.GetPosition().x <= rect.right)
 	{
 		ball.ReboundY();
