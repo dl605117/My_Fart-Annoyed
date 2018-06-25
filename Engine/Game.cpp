@@ -26,7 +26,7 @@ Game::Game(MainWindow& wnd)
 	wnd(wnd),
 	gfx(wnd),
 	ft(),
-	ball(Vec2(324.0f, 300.0f), Vec2(-300.0f, -300.0f)),
+	ball(Vec2(300.0f, 300.0f), Vec2(-300.0f, -300.0f)),
 	wall(0.0f, 0.0f, float(Graphics::ScreenWidth), float(Graphics::ScreenHeight)),
 	paddle(Vec2(400.0f, 500.0f), 50.0f, 15.0f),
 	soundBall( L"Sounds\\arkpad.wav" ),
@@ -60,11 +60,38 @@ void Game::UpdateModel()
 	paddle.Update( wnd.kbd, dt );
 	paddle.DoBallCollision( ball );
 	paddle.DoWallCollision( wall );
-	for (Brick& brick : bricks)
+
+	bool collidedBefore = false;
+	float currentBallDistanceSq;
+	int brickIndex;
+	for ( int i = 0; i < nBricks; i++ )
 	{
-		if (brick.DoBallCollision(ball))
-			soundBrick.Play();
+		if (bricks[i].CheckBallCollision(ball))
+		{
+			float newBallDistanceSq = (ball.GetPosition() - bricks[i].GetCenter()).GetLengthSq();
+			if (collidedBefore)
+			{
+				if (newBallDistanceSq < currentBallDistanceSq)
+				{
+					currentBallDistanceSq = newBallDistanceSq;
+					brickIndex = i;
+				}
+			}
+			else
+			{
+				currentBallDistanceSq = newBallDistanceSq;
+				collidedBefore = true;
+				brickIndex = i;
+			}
+		}
 	}
+
+	if (collidedBefore)
+	{
+		bricks[brickIndex].ExecuteBallCollision(ball);
+		soundBrick.Play();
+	}
+
 	if (ball.DoWallCollision(wall))
 		soundBall.Play();
 }
