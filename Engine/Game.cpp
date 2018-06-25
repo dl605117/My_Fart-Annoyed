@@ -26,7 +26,7 @@ Game::Game(MainWindow& wnd)
 	wnd(wnd),
 	gfx(wnd),
 	ft(),
-	ball(Vec2(300.0f, 300.0f), Vec2(-300.0f, -300.0f)),
+	ball(Vec2(316.0f, 300.0f), Vec2(-300.0f, -300.0f)),
 	wall(0.0f, 0.0f, float(Graphics::ScreenWidth), float(Graphics::ScreenHeight)),
 	paddle(Vec2(400.0f, 500.0f), 50.0f, 15.0f),
 	soundBall( L"Sounds\\arkpad.wav" ),
@@ -39,6 +39,7 @@ Game::Game(MainWindow& wnd)
 	{
 		for (int j = 0; j < nCols; j++)
 		{
+			if (i == 3 && j == 3)
 			bricks[brickCounter] = Brick( RectF(topLeft + Vec2(j * brickWidth, i * brickHeight), brickWidth, brickHeight), c[i]);
 			brickCounter++;
 		}
