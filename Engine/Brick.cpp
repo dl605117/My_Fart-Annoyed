@@ -26,10 +26,6 @@ void Brick::ExecuteBallCollision(Ball & ball)
 	{
 		ball.ReboundY();
 	}
-	/*else if (std::signbit(ball.GetVelocity().y) == std::signbit((GetCenter() - ball.GetVelocity()).y))
-	{
-		ball.ReboundX();
-	}*/
 	else if (ball.GetPosition().x >= rect.left && ball.GetPosition().x <= rect.right)
 	{
 		ball.ReboundY();
